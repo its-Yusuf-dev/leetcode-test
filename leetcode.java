@@ -16,7 +16,7 @@ class Solution1A{
 }
 class Solution1B{
     public boolean containsDuplicate(int[] nums){
-        Set<Integers> set = new HashSet<>();
+        Set<Integer> set = new HashSet<>();
         for(int i=0;i<nums.length;i++){
             if(set.contains(nums[i])) return true;
         }
@@ -107,7 +107,7 @@ class Solution3A{
 }
 class Solution3B{
     public int[] twoSum(int[] nums, int target){
-        Map<Integer> map = new HashMap<>();
+        Map<Integer,Integer> map = new HashMap<>();
         for(int i = 0; i < nums.length; i++){
             int compliment = target - nums[i];
             if(map.containsKey(compliment)) return new int[] {map.get(compliment),i};
@@ -119,7 +119,7 @@ class Solution3B{
 class Solution3C{
     public boolean twoSum(int[] nums, int target){
         Arrays.sort(nums);
-        int l=0;r=nums.length;
+        int l=0,r=nums.length;
         while(l<r){
             if(nums[l]+nums[r]==target) return true;
             if(nums[l]+nums[r]>target) r--;
@@ -128,15 +128,15 @@ class Solution3C{
         return false;
     }
 }
-class Solution3A{
+class Solution3D{
     public int[] twoSum(int[] nums, int target){
         int[][] newNums = new int[nums.length][2];
         for(int i=0; i<nums.length; i++){
             newNums[i][0]=nums[i];
             newNums[i][1]=i;
         }
-        Arrays.sort(newNums,(a,b)->newNums[a]-newNums[b]);
-        int l=0;r=nums.length-1;
+        Arrays.sort(newNums, (a, b) -> a[0] - b[0]);
+        int l=0,r=nums.length-1;
         while(l<r){
             if(newNums[l][0]+newNums[r][0]==target) return new int[] {newNums[l][1],newNums[r][1]};
             if(newNums[l][0]+newNums[r][0]>target) r--;
