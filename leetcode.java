@@ -147,5 +147,26 @@ class Solution3D{
     }
 }
 // 4. GROUP ANAGRAMS
-// strs = ["eat", "tea", "tan", "ate", "ate", "nat", "bat"]
-// hi
+// strs = ["eat", "tea", "tan", "ate", "nat", "bat"]
+// [["eat", "tea", "ate"], ["tan", "nat"], ["bat"]]
+// strs = [""]
+// [[""]]
+// strs = ["a"]
+// [["a"]]
+class Solution4A{
+    public List<List<String>> groupAnagrams(String[] stars){
+        Map<String,List<String>> map = new HashMap<>();
+        for(String s: stars){
+            char[] c = s.toCharArray();
+            Arrays.sort(c);
+            String ss = new String(c);
+            if(!map.containsKey(ss)){
+                map.put(ss,new ArrayList<>());
+            }
+            else{
+                map.get(ss).add(s);
+            }
+        }
+        return map;
+    }
+}
