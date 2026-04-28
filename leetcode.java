@@ -167,6 +167,6 @@ class Solution4A{
                 map.get(ss).add(s);
             }
         }
-        return map;
+        return new ArrayList<>(map.values());
     }
 }
